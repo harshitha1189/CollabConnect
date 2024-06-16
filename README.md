@@ -6,13 +6,13 @@ Freelancer Profiles: View detailed profiles of freelancers including their name,
 Project Listings: Browse available projects posted by clients.
 Search Functionality: Search for freelancers based on their skills.
 Contact Freelancers: Contact freelancers directly through the platform.
-Technologies Used
+Technologies Used:
 HTML
 CSS
 JavaScript
 How to Use
 To use the project, simply open the index.html file in your web browser. You can then browse through the freelancer profiles and project listing
-go to the link given in description to view how project looks like
+go to the link : https://harshitha1189.github.io/CollabConnect/
 
 
 Future Improvements
