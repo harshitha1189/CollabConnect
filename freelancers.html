@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelancer Profiles</title>
+
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align content at the top vertically */
+    background-color: #092635;
+}
+header {
+    background-color: #092635;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.profile {
+    width: 45%;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #9EC8B9;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.profile img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .profile {
+        width: 100%;
+    }
+}
+
+nav {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.add-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.add-profile button {
+    padding: 8px 16px;
+    background-color: #5C8374;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-profile {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.delete-profile button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+  
+
+</style>
+</head>
+<body>
+    <header><h1>CollabConnect</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        
+        <a href="freelancers.html">Freelancers</a>
+        <a href="contact.html">Contact</a>
+    </nav></header>
+    <div class="add-profile">
+        <a href="addprofile.html"><button>Add Your Profile</button></a>
+    </div>
+    
+  
+<div class="profile">
+   
+    <h1>Aarav Kumar</h1>
+    <h2>Experienced Web Developer</h2>
+    <p><strong>Overview:</strong>Experienced in front-end and back-end development.</p>
+    <p><strong>Skills:</strong>HTML, CSS, JavaScript, Node.js, React</p>
+    <p><strong>Experience:</strong> 5+ years of experience in building web applications.</p>
+    <p><strong>Education:</strong> Bachelor's Degree in Computer Science</p>
+    <p><strong>Availability:</strong> Full-time, Monday to Friday, 9am to 5pm</p>
+    <p><strong>Contact:</strong> <a href="mailto:aarav.kumar@gmail.com">aarav.kumar@gmail.com</a></p>
+    
+</div>
+<!-- Repeat the above profile structure for the next 9 profiles -->
+<div class="profile">
+   
+    <h1>Riya Patel</h1>
+    <h2>Graphic Designer</h2>
+    <p><strong>Overview:</strong>Creative and detail-oriented designer with a passion for branding</p>
+    <p><strong>Skills:</strong>Adobe Photoshop, Illustrator, InDesign</p>
+    <p><strong>Experience:</strong> 3+ years of experience in creating visual concepts.</p>
+    <p><strong>Education:</strong>Diploma in Graphic Design</p>
+    <p><strong>Availability:</strong> Part-time, flexible hours</p>
+    <p><strong>Contact:</strong> <a href="mailto:riya.patel@gmail.com">riya.patel@gmail.com</a></p>
+</div>
+
+<div class="profile">
+    
+    <h1>Ananya Singh</h1>
+    <h2>Content Writer</h2>
+    <p><strong>Overview:</strong>Skilled writer with a focus on SEO and digital content.</p>
+    <p><strong>Skills:</strong> Content writing, SEO, Copywriting</p>
+    <p><strong>Experience:</strong> 4+ years of experience in writing for various industries.</p>
+    <p><strong>Education:</strong>  Master's Degree in English Literature</p>
+    <p><strong>Availability:</strong> Full-time, Monday to Friday, 10am to 7pm</p>
+    <p><strong>Contact:</strong> <a href="ananya.singh@gmail.com">ananya.singh@gmail.com</a></p>
+</div>
+
+<div class="profile">
+    
+    <h1>Arjun Sharma</h1>
+    <h2>Mobile App Developer</h2>
+    <p><strong>Overview:</strong> Specialized in Android and iOS app development.</p>
+    <p><strong>Skills:</strong>Java, Kotlin, Swift, Flutter</p>
+    <p><strong>Experience:</strong>6+ years of experience in developing mobile applications</p>
+    <p><strong>Education:</strong> Bachelor's Degree in Computer Science</p>
+    <p><strong>Availability:</strong> Full-time, Monday to Friday, 9am to 5pm</p>
+    <p><strong>Contact:</strong> <a href="arjun.sharma@gmail.com">arjun.sharma@gmail.com</a></p>
+</div>
+<script>
+   function getUrlParams() {
+    const params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+        params[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+    });
+    return params;
+}
+
+
+
+// Get URL parameters
+const params = getUrlParams();
+
+// Check if URL parameters exist
+if (Object.keys(params).length > 0) {
+    // Store the params in localStorage
+    localStorage.setItem('profileParams', JSON.stringify(params));
+}
+
+// Retrieve stored params from localStorage
+const storedParams = JSON.parse(localStorage.getItem('profileParams'));
+
+// Create a new profile div with the stored data
+if (storedParams) {
+    const newProfile = `
+        <div class="profile">
+            <h1>${storedParams.name}</h1>
+            <h2>${storedParams.title}</h2>
+            <p><strong>Overview:</strong> ${storedParams.overview}</p>
+            <p><strong>Skills:</strong> ${storedParams.skills}</p>
+            <p><strong>Experience:</strong> ${storedParams.experience}</p>
+            <p><strong>Education:</strong> ${storedParams.education}</p>
+            <p><strong>Availability:</strong> ${storedParams.availability}</p>
+            <p><strong>Contact:</strong> <a href="mailto:${storedParams.contact}">${storedParams.contact}</a></p>
+        </div>
+    `;
+
+    // Append the new profile div to the body
+    document.body.insertAdjacentHTML('beforeend', newProfile);
+    document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const profile = Object.fromEntries(formData.entries());
+    
+    // Get current profiles from local storage
+    const profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+    // Add new profile to profiles array
+    profiles.push(profile);
+    // Save updated profiles back to local storage
+    localStorage.setItem('profiles', JSON.stringify(profiles));
+    
+    // Redirect to freelancers.html
+    window.location.href = "freelancers.html";
+});
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

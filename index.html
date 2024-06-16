@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollabConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>CollabConnect</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+               
+                <li><a href="freelancers.html">Freelancers</a></li>
+                 <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search">
+            <h2>Find Freelancers</h2>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Enter skills or keywords" required>
+                <button type="submit">Search</button>
+            </form>
+            <div id="results"></div>
+            <div id="loading" class="spinner" style="display: none;"></div>
+        </section>
+    </main>
+
+
+    <script src="index.js"></script>
+    <footer>
+        <p>&copy; 2024 CollabConnect. All rights reserved.</p>
+    </footer>
+</body>
+</html>

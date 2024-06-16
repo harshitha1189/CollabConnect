@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>CollabConnect</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                
+                <li><a href="freelancers.html">Freelancers</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Contact Me</h2>
+            <form onsubmit="sendEmail(); return false;" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+       function sendEmail() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "sreeharshitha1189@gmail.com",
+        Password: "harshiprincy23",
+        To: 'sreeharshitha1189@gmail.com',
+        From: email,
+        Subject: "New Contact Form Enquiry",
+        Body: `Name: ${name} <br> Email: ${email} <br> Message: ${message}`
+    }).then(
+        message => {
+            alert("Message sent successfully");
+            console.log(message);
+        }
+    ).catch(
+        error => {
+            alert("Message failed to send: " + error);
+            console.error(error);
+        }
+    );
+}
+
+    </script>
+</body>
+</html>
+
